@@ -1,108 +1,132 @@
 @import "tailwindcss";
-@plugin "daisyui" {
-  themes: light --default, dark --prefersdark;
+@plugin "daisyui";
+
+/* Light Theme (Default) */
+@plugin "daisyui/theme" {
+  name: "xingyu";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+
+  /* Base colors - Soft Mist White backgrounds */
+  --color-base-100: oklch(97% 0.015 120);
+  --color-base-200: oklch(94% 0.02 120);
+  --color-base-300: oklch(90% 0.025 120);
+  --color-base-content: oklch(22% 0.02 140);
+
+  /* Primary - Deep Evergreen */
+  --color-primary: oklch(42% 0.12 145);
+  --color-primary-content: oklch(92% 0.03 145);
+
+  /* Secondary - Warm Oatmeal/Sand */
+  --color-secondary: oklch(48% 0.08 60);
+  --color-secondary-content: oklch(92% 0.03 60);
+
+  /* Accent - Rich Copper/Cedar */
+  --color-accent: oklch(60% 0.09 160);
+  --color-accent-content: oklch(18% 0.03 160);
+
+  /* Neutral - Muted foreground */
+  --color-neutral: oklch(18% 0.02 120);
+  --color-neutral-content: oklch(90% 0.015 120);
+
+  /* Info - Cyan for CTAs (Stitch design) */
+  --color-info: oklch(72% 0.08 220);
+  --color-info-content: oklch(22% 0.05 220);
+
+  /* Success - Leaf green */
+  --color-success: oklch(65% 0.14 150);
+  --color-success-content: oklch(22% 0.05 150);
+
+  /* Warning - Autumn amber */
+  --color-warning: oklch(78% 0.12 85);
+  --color-warning-content: oklch(28% 0.08 85);
+
+  /* Error - Clay red */
+  --color-error: oklch(62% 0.15 25);
+  --color-error-content: oklch(20% 0.08 25);
+
+  /* Border radius */
+  --rounded-box: 1rem;
+  --rounded-btn: 0.5rem;
+  --rounded-badge: 1.9rem;
+
+  /* Base sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* Border width */
+  --border: 1px;
+
+  /* Effects */
+  --depth: 1;
+  --noise: 0.02;
 }
 
-:root {
-  /* Premium Nature Palette - "Oatmeal & Evergreen" */
-  --primary: 155 35% 18%; /* Deep Evergreen */
-  --primary-light: 155 25% 25%;
-  --secondary: 42 25% 82%; /* Warm Oatmeal/Sand */
-  --accent: 32 45% 28%; /* Rich Copper/Cedar */
+/* Dark Theme */
+@plugin "daisyui/theme" {
+  name: "xingyu-dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: "dark";
 
-  /* Neutrals */
-  --background: 42 20% 97%; /* Soft Mist White */
-  --foreground: 155 50% 10%;
-  --muted: 42 20% 92%;
-  --muted-foreground: 155 15% 40%;
+  /* Base colors - Dark forest backgrounds */
+  --color-base-100: oklch(25% 0.02 140);
+  --color-base-200: oklch(17% 0.02 140);
+  --color-base-300: oklch(12% 0.02 140);
+  --color-base-content: oklch(88% 0.03 145);
 
-  /* Gradients */
-  --gradient-premium: linear-gradient(
-    135deg,
-    hsl(155 35% 18%),
-    hsl(155 25% 25%)
-  );
-  --gradient-soft: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(245, 243, 235, 0.8) 100%
-  );
-}
+  /* Primary - Bright Evergreen */
+  --color-primary: oklch(65% 0.14 150);
+  --color-primary-content: oklch(22% 0.05 150);
 
-@theme inline {
-  /* Colors */
-  --color-primary: hsl(var(--primary));
-  --color-secondary: hsl(var(--secondary));
-  --color-accent: hsl(var(--accent));
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
+  /* Secondary - Warm Sand */
+  --color-secondary: oklch(48% 0.08 60);
+  --color-secondary-content: oklch(25% 0.02 140);
 
-  /* Typography Pairing */
-  --font-serif: var(--font-playfair);
-  --font-sans: var(--font-outfit);
+  /* Accent - Bright Copper */
+  --color-accent: oklch(70% 0.12 40);
+  --color-accent-content: oklch(22% 0.05 40);
 
-  /* Elevation */
-  --shadow-premium: 0 20px 50px -12px rgba(0, 0, 0, 0.1);
+  /* Neutral - Light gray */
+  --color-neutral: oklch(40% 0.02 240);
+  --color-neutral-content: oklch(88% 0.03 145);
 
-  /* daisyUI Theme Configuration */
-  --daisy-theme-xingyu-primary: hsl(var(--primary));
-  --daisy-theme-xingyu-secondary: hsl(var(--secondary));
-  --daisy-theme-xingyu-accent: hsl(var(--accent));
-  --daisy-theme-xingyu-neutral: hsl(var(--foreground));
-  --daisy-theme-xingyu-base-100: hsl(var(--background));
-}
+  /* Info - Cyan (same as light) */
+  --color-info: oklch(72% 0.08 220);
+  --color-info-content: oklch(22% 0.05 220);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-  }
+  /* Success - Leaf green */
+  --color-success: oklch(65% 0.14 150);
+  --color-success-content: oklch(22% 0.05 150);
+
+  /* Warning - Amber */
+  --color-warning: oklch(78% 0.12 85);
+  --color-warning-content: oklch(28% 0.08 85);
+
+  /* Error - Red */
+  --color-error: oklch(62% 0.15 25);
+  --color-error-content: oklch(98% 0.01 25);
+
+  /* Border radius */
+  --rounded-box: 1rem;
+  --rounded-btn: 0.5rem;
+  --rounded-badge: 1.9rem;
+
+  /* Base sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* Border width */
+  --border: 1px;
+
+  /* Effects */
+  --depth: 1;
+  --noise: 0.02;
 }
 
 * {
   scroll-behavior: smooth;
-}
-
-body {
-  background: var(--color-background);
-  color: var(--color-foreground);
-  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
-  overflow-x: hidden;
-  position: relative;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: 9999;
-  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
-}
-
-/* Typography Overrides */
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-p,
-span,
-button,
-a {
-  font-family: var(--font-sans);
 }
 
 /* View Transitions API Support */

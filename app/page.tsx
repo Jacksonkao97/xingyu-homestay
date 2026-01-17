@@ -1,16 +1,18 @@
-import Hero from "@/components/Hero";
-import HouseGallery from "@/components/HouseGallery";
-import Amenities from "@/components/Amenities";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
+import Navigation from "@/components/Navigation";
+import GlimpseGallery from "@/components/GlimpseGallery";
+import PricingSection from "@/components/PricingSection";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
     <main>
+      <Navigation />
       <Hero />
-      <HouseGallery />
-      <Amenities />
-      <Contact />
+      <GlimpseGallery />
+      <PricingSection />
+      <ContactSection />
       <Footer />
     </main>
   );

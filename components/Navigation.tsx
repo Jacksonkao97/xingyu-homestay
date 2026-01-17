@@ -1,0 +1,60 @@
+"use client";
+
+import Link from "next/link";
+import ThemeSwitcher from "./ThemeSwitcher";
+
+export default function Navigation() {
+  return (
+    <nav className="bg-base-100 fixed top-0 right-0 left-0 z-50 shadow-sm duration-300">
+      <div className="container mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <div className="bg-info flex h-8 w-8 items-center justify-center rounded-lg">
+              <span className="text-info-content text-lg font-bold">H</span>
+            </div>
+            <span className="text-base-content text-lg font-bold">
+              Homestay
+            </span>
+          </Link>
+
+          {/* Navigation Links */}
+          <div className="hidden items-center gap-8 md:flex">
+            <Link
+              href="#home"
+              className="text-base-content/70 hover:text-base-content transition-colors"
+            >
+              Home
+            </Link>
+            <Link
+              href="#gallery"
+              className="text-base-content/70 hover:text-base-content transition-colors"
+            >
+              Gallery
+            </Link>
+            <Link
+              href="#pricing"
+              className="text-base-content/70 hover:text-base-content transition-colors"
+            >
+              Pricing
+            </Link>
+            <Link
+              href="#contact"
+              className="text-base-content/70 hover:text-base-content transition-colors"
+            >
+              Contact
+            </Link>
+          </div>
+
+          {/* Right side: Theme Switcher + CTA */}
+          <div className="flex items-center gap-4">
+            <ThemeSwitcher />
+            <Link href="#contact" className="btn btn-info btn-sm md:btn-md">
+              Book Now
+            </Link>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+}
