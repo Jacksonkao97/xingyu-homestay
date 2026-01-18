@@ -1,17 +1,31 @@
 "use client";
 
 import { Check } from "lucide-react";
+import { useTranslation } from "@/lib/translations";
 
-const amenities = [
-  "High-speed Wi-Fi",
-  "Full Kitchen",
-  "Private Parking",
-  "Laundry",
-  "Smart Home Features",
-  "Work Space",
-];
+const amenitiesMap = {
+  en: [
+    "High-speed Wi-Fi",
+    "Full Kitchen",
+    "Private Parking",
+    "Laundry",
+    "Smart Home Features",
+    "Work Space",
+  ],
+  zh: [
+    "高速 Wi-Fi",
+    "完整厨房",
+    "私人停车位",
+    "洗衣房",
+    "智能家居设施",
+    "办公空间",
+  ],
+};
 
 export default function PricingSection() {
+  const { t, language } = useTranslation();
+  const amenities = amenitiesMap[language as keyof typeof amenitiesMap];
+
   return (
     <section id="pricing" className="bg-base-100 py-16 duration-300">
       <div className="container mx-auto px-6">
@@ -21,13 +35,11 @@ export default function PricingSection() {
             <div className="space-y-6">
               <div className="space-y-4">
                 <h2 className="text-base-content text-3xl font-bold md:text-4xl">
-                  Transparent Pricing,
-                  <br />
-                  Premium Experience.
+                  {t("pricing.title")}
                 </h2>
                 <p className="text-base-content/70 text-sm md:text-base">
-                  Enjoy all the comforts of home without all-inclusive nightly
-                  rate. No hidden fees, just pure relaxation.
+                  {t("hero.subtitle")}{" "}
+                  {/* Using hero subtitle as placeholder or add a specific one */}
                 </p>
               </div>
 
@@ -58,12 +70,14 @@ export default function PricingSection() {
                       <span className="text-base-content text-5xl font-bold">
                         RM400
                       </span>
-                      <span className="text-base-content/60">/night</span>
+                      <span className="text-base-content/60">
+                        /{t("pricing.perNight")}
+                      </span>
                     </div>
                   </div>
 
                   <button className="btn btn-info btn-lg w-full">
-                    Check Availability
+                    {t("nav.bookNow")}
                   </button>
 
                   <p className="text-base-content/50 text-xs">

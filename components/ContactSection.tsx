@@ -1,8 +1,11 @@
 "use client";
 
 import { Mail, Phone, ExternalLink } from "lucide-react";
+import { useTranslation } from "@/lib/translations";
 
 export default function ContactSection() {
+  const { t } = useTranslation();
+
   return (
     <section id="contact" className="bg-base-300 py-16 duration-300">
       <div className="container mx-auto px-6">
@@ -12,16 +15,15 @@ export default function ContactSection() {
             <div className="space-y-8">
               {/* Section Title */}
               <h2 className="text-base-content text-3xl font-bold md:text-4xl">
-                Ready to Relax?
+                {t("contact.ready")}
               </h2>
 
               <div>
                 <h3 className="text-base-content mb-1 text-2xl font-bold">
-                  Get in Touch
+                  {t("contact.getInTouch")}
                 </h3>
                 <p className="text-base-content/70 text-sm">
-                  Have questions about your stay? We're here to help you plan
-                  your perfect getaway.
+                  {t("contact.subtitle")}
                 </p>
               </div>
 

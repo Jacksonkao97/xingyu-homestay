@@ -2,29 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
+import { useThemeStore } from "@/store/useThemeStore";
 
 export default function ThemeSwitcher() {
-  const [theme, setTheme] = useState<"xingyu" | "xingyu-dark">("xingyu");
+  const { theme, toggleTheme } = useThemeStore();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Check for saved theme preference or default to 'xingyu'
-    const savedTheme = localStorage.getItem("theme") as
-      | "xingyu"
-      | "xingyu-dark"
-      | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-    }
     setMounted(true);
   }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === "xingyu" ? "xingyu-dark" : "xingyu";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
-  };
 
   // Don't render icon until mounted to prevent flash
   if (!mounted) {

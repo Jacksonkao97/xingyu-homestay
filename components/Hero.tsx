@@ -1,8 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslation } from "@/lib/translations";
 
 export default function Hero() {
+  const { t } = useTranslation();
+
   return (
     <section
       id="home"
@@ -14,7 +17,7 @@ export default function Hero() {
           {/* Background Image */}
           <Image
             src="/images/hero-room.jpg"
-            alt="Modern Homestay Interior"
+            alt="Star-Whisper Cottage Modern Interior"
             fill
             className="object-cover"
             priority
@@ -26,16 +29,15 @@ export default function Hero() {
           {/* Centered Content */}
           <div className="relative z-10 max-w-3xl px-6 text-center">
             <h1 className="mb-6 text-5xl leading-tight font-bold text-white md:text-6xl lg:text-7xl">
-              Experience Comfort Like Never Before
+              {t("hero.title")}
             </h1>
 
             <p className="mx-auto mb-8 max-w-2xl text-lg text-white/90 md:text-xl">
-              Experience luxury living in the heart of nature. Your perfect
-              getaway awaits.
+              {t("hero.subtitle")}
             </p>
 
             <button className="btn btn-info btn-lg shadow-lg">
-              Book Your Stay
+              {t("hero.cta")}
             </button>
           </div>
         </div>
