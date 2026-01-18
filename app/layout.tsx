@@ -19,6 +19,9 @@ const notoSansSC = Noto_Sans_SC({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL || "https://xingyucabin.com",
+  ),
   title: "星语小屋 (Star-Whisper Cottage) | Nature Escape in Kundasang, Sabah",
   description:
     "Experience peace and serenity at 星语小屋. A cozy whole-house homestay nestled in nature with stunning views of Mount Kinabalu.",
@@ -36,7 +39,7 @@ export const metadata: Metadata = {
       "星语小屋 (Star-Whisper Cottage) | Nature Escape in Kundasang, Sabah",
     description:
       "Experience peace and serenity at 星语小屋. A cozy whole-house homestay nestled in nature with stunning views of Mount Kinabalu.",
-    url: "https://xingyucabin.com",
+    url: process.env.NEXT_PUBLIC_BASE_URL || "https://xingyucabin.com",
     siteName: "星语小屋 (Star-Whisper Cottage)",
     images: [
       {

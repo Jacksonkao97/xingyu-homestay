@@ -6,29 +6,13 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "@/lib/translations";
 
-const galleryItemsMap = {
-  en: [
-    { id: 1, title: "Master Bedroom", image: "/images/hero-room.jpg" },
-    { id: 2, title: "Living Area", image: "/images/hero-room.jpg" },
-    { id: 3, title: "Modern Bath", image: "/images/hero-room.jpg" },
-    { id: 4, title: "Kitchen", image: "/images/hero-room.jpg" },
-    { id: 5, title: "Dining Area", image: "/images/hero-room.jpg" },
-    { id: 6, title: "Balcony View", image: "/images/hero-room.jpg" },
-  ],
-  zh: [
-    { id: 1, title: "主卧室", image: "/images/hero-room.jpg" },
-    { id: 2, title: "生活区", image: "/images/hero-room.jpg" },
-    { id: 3, title: "现代浴室", image: "/images/hero-room.jpg" },
-    { id: 4, title: "厨房", image: "/images/hero-room.jpg" },
-    { id: 5, title: "用餐区", image: "/images/hero-room.jpg" },
-    { id: 6, title: "阳台景观", image: "/images/hero-room.jpg" },
-  ],
-};
-
 export default function GlimpseGallery() {
   const { t, language } = useTranslation();
-  const galleryItems =
-    galleryItemsMap[language as keyof typeof galleryItemsMap];
+  const galleryItems = t("gallery.items") as {
+    id: number;
+    title: string;
+    image: string;
+  }[];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [itemsPerPage, setItemsPerPage] = useState(3);

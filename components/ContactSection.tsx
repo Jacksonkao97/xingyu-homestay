@@ -41,7 +41,7 @@ export default function ContactSection() {
                   </div>
                   <div className="flex-1">
                     <p className="text-base-content/60 text-xs font-semibold tracking-wider uppercase">
-                      WhatsApp
+                      {t("contact.whatsapp")}
                     </p>
                     <p className="text-base-content font-semibold">
                       +1 (555) 123-4567
@@ -62,7 +62,7 @@ export default function ContactSection() {
                   </div>
                   <div className="flex-1">
                     <p className="text-base-content/60 text-xs font-semibold tracking-wider uppercase">
-                      Email
+                      {t("contact.email")}
                     </p>
                     <p className="text-base-content font-semibold">
                       hello@homestay.com

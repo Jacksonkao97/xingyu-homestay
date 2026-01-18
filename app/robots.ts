@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/private/", // Place any private paths here
     },
-    sitemap: "https://xingyucabin.com/sitemap.xml",
+    sitemap: `${process.env.NEXT_PUBLIC_BASE_URL || "https://xingyucabin.com"}/sitemap.xml`,
   };
 }

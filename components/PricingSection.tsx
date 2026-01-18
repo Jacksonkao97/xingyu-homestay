@@ -3,28 +3,9 @@
 import { Check } from "lucide-react";
 import { useTranslation } from "@/lib/translations";
 
-const amenitiesMap = {
-  en: [
-    "High-speed Wi-Fi",
-    "Full Kitchen",
-    "Private Parking",
-    "Laundry",
-    "Smart Home Features",
-    "Work Space",
-  ],
-  zh: [
-    "高速 Wi-Fi",
-    "完整厨房",
-    "私人停车位",
-    "洗衣房",
-    "智能家居设施",
-    "办公空间",
-  ],
-};
-
 export default function PricingSection() {
-  const { t, language } = useTranslation();
-  const amenities = amenitiesMap[language as keyof typeof amenitiesMap];
+  const { t } = useTranslation();
+  const amenities = t("pricing.amenities") as string[];
 
   return (
     <section id="pricing" className="bg-base-100 py-16 duration-300">
@@ -38,8 +19,7 @@ export default function PricingSection() {
                   {t("pricing.title")}
                 </h2>
                 <p className="text-base-content/70 text-sm md:text-base">
-                  {t("hero.subtitle")}{" "}
-                  {/* Using hero subtitle as placeholder or add a specific one */}
+                  {t("hero.subtitle")}
                 </p>
               </div>
 
@@ -64,7 +44,7 @@ export default function PricingSection() {
                 <div className="card-body space-y-6 text-center">
                   <div>
                     <p className="text-base-content/60 mb-2 text-xs font-semibold tracking-wider uppercase">
-                      Standard Rate
+                      {t("pricing.standardRate")}
                     </p>
                     <div className="flex items-baseline justify-center gap-1">
                       <span className="text-base-content text-5xl font-bold">
@@ -81,7 +61,7 @@ export default function PricingSection() {
                   </button>
 
                   <p className="text-base-content/50 text-xs">
-                    Prices may vary during holidays and special events
+                    {t("pricing.disclaimer")}
                   </p>
                 </div>
               </div>
