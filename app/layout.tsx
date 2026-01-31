@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_BASE_URL || "https://xingyucabin.com",
   ),
-  title: "星语小屋 (Star-Whisper Cottage) | Nature Escape in Kundasang, Sabah",
+  title: "星语小屋 Star-Whisper Cottage | Nature Escape in Kundasang, Sabah",
   description:
     "Experience peace and serenity at 星语小屋. A cozy whole-house homestay nestled in nature with stunning views of Mount Kinabalu.",
   keywords: [
@@ -35,12 +35,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "星语小屋" }],
   openGraph: {
-    title:
-      "星语小屋 (Star-Whisper Cottage) | Nature Escape in Kundasang, Sabah",
+    title: "星语小屋 Star-Whisper Cottage | Nature Escape in Kundasang, Sabah",
     description:
       "Experience peace and serenity at 星语小屋. A cozy whole-house homestay nestled in nature with stunning views of Mount Kinabalu.",
     url: process.env.NEXT_PUBLIC_BASE_URL || "https://xingyucabin.com",
-    siteName: "星语小屋 (Star-Whisper Cottage)",
+    siteName: "星语小屋 Star-Whisper Cottage",
     images: [
       {
         url: "/images/og-image.jpg",
@@ -54,8 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "星语小屋 (Star-Whisper Cottage) | Nature Escape in Kundasang, Sabah",
+    title: "星语小屋 Star-Whisper Cottage | Nature Escape in Kundasang, Sabah",
     description:
       "Experience peace and serenity at 星语小屋. A cozy whole-house homestay nestled in nature with stunning views of Mount Kinabalu.",
     images: ["/images/og-image.jpg"],
@@ -76,6 +74,7 @@ export const metadata: Metadata = {
   },
 };
 
+import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 
 export default function RootLayout({
@@ -146,6 +145,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${notoSansSC.variable} antialiased`}>
         <SmoothScroll>{children}</SmoothScroll>
+        <Footer />
       </body>
     </html>
   );

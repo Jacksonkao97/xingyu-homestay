@@ -1,14 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "@/lib/translations";
+import { AnimatePresence, motion } from "framer-motion";
+import { useLenis } from "lenis/react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function GlimpseGallery() {
+  const lenis = useLenis();
   const { t, language } = useTranslation();
-  const galleryItems = t("gallery.items") as {
+  const galleryItems = t("gallery.items") as never as {
     id: number;
     title: string;
     image: string;
@@ -16,17 +18,6 @@ export default function GlimpseGallery() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [itemsPerPage, setItemsPerPage] = useState(3);
-
-  // Detect screen size for responsive carousel
-  useEffect(() => {
-    const handleResize = () => {
-      setItemsPerPage(window.innerWidth >= 768 ? 3 : 1);
-    };
-
-    handleResize(); // Set initial value
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const handlePrevious = () => {
     setCurrentIndex((prev) => {
@@ -49,14 +40,39 @@ export default function GlimpseGallery() {
     currentIndex + itemsPerPage,
   );
 
+  useEffect(() => {
+    if (selectedImage === null) {
+      document.body.style.overflow = "auto";
+      lenis?.start();
+    } else {
+      document.body.style.overflow = "hidden";
+      lenis?.stop();
+    }
+  }, [lenis, selectedImage]);
+
+  // Detect screen size for responsive carousel
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerPage(window.innerWidth >= 768 ? 3 : 1);
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <>
-      <section id="gallery" className="bg-base-300 py-12 duration-300">
+      <section id="gallery" className="bg-base-300 py-16 duration-300">
         <div className="container mx-auto px-6">
           {/* Header with Navigation */}
-          <div className="mb-12 flex items-center justify-between">
+          <div className="mb-16 flex items-start justify-between">
             <h2 className="text-base-content text-2xl font-bold md:text-4xl">
               {t("gallery.title")}
+              <br />
+              <span className="text-base-content/70 text-base font-normal">
+                {t("gallery.subtitle")}
+              </span>
             </h2>
 
             <div className="flex items-center gap-2">
@@ -99,6 +115,8 @@ export default function GlimpseGallery() {
                       src={item.image}
                       alt={item.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      loading="eager"
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
 
