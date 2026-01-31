@@ -1,62 +1,108 @@
 "use client";
 
-import Link from "next/link";
-import ThemeSwitcher from "./ThemeSwitcher";
-import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslation } from "@/lib/translations";
+import { useLenis } from "lenis/react";
+import { MenuIcon } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeSwitcher from "./ThemeSwitcher";
+
+const NAV_LINKS = [
+  { href: "#home", labelKey: "nav.home" },
+  { href: "#gallery", labelKey: "nav.gallery" },
+  { href: "#pricing", labelKey: "nav.pricing" },
+  { href: "#contact", labelKey: "nav.contact" },
+];
 
 export default function Navigation() {
+  const lenis = useLenis();
   const { t } = useTranslation();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const handleClick = (e: React.MouseEvent, href: string) => {
+    // Only intercept if it's an anchor link (starts with #)
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      lenis?.scrollTo(href, {
+        offset: -64, // Adjust if you have a sticky header
+        duration: 1.5, // Custom speed for this specific jump
+        lerp: 0.1,
+      });
+    }
+  };
+
+  const handleToggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   return (
     <nav className="bg-base-100 fixed top-0 right-0 left-0 z-50 shadow-sm duration-300">
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-3 py-3 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="bg-info flex h-8 w-8 items-center justify-center rounded-lg">
+          <Link
+            href="/"
+            onClick={() => (window.location.href = "/")}
+            className="flex items-center gap-2"
+          >
+            <div className="bg-info flex h-10 w-10 items-center justify-center rounded-lg">
               <span className="text-info-content text-lg font-bold">S</span>
             </div>
-            <span className="text-base-content text-lg font-bold">
+            <span className="text-base-content inline text-lg font-bold">
               {t("brand.logo")}
             </span>
           </Link>
 
           {/* Navigation Links */}
           <div className="hidden items-center gap-8 md:flex">
-            <Link
-              href="#home"
-              className="text-base-content/70 hover:text-base-content transition-colors"
-            >
-              {t("nav.home")}
-            </Link>
-            <Link
-              href="#gallery"
-              className="text-base-content/70 hover:text-base-content transition-colors"
-            >
-              {t("nav.gallery")}
-            </Link>
-            <Link
-              href="#pricing"
-              className="text-base-content/70 hover:text-base-content transition-colors"
-            >
-              {t("nav.pricing")}
-            </Link>
-            <Link
-              href="#contact"
-              className="text-base-content/70 hover:text-base-content transition-colors"
-            >
-              {t("nav.contact")}
-            </Link>
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.labelKey}
+                href={link.href}
+                onClick={(e) => handleClick(e, link.href)}
+                className="text-base-content/70 hover:text-base-content transition-colors"
+              >
+                {t(link.labelKey)}
+              </Link>
+            ))}
           </div>
 
-          {/* Right side: Language + Theme + CTA */}
-          <div className="flex items-center gap-2 md:gap-4">
+          {/* Right side: Language + Theme */}
+          <div className="hidden items-center md:flex md:gap-4">
             <LanguageSwitcher />
             <ThemeSwitcher />
-            <Link href="#contact" className="btn btn-info btn-sm md:btn-md">
-              {t("nav.bookNow")}
-            </Link>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={handleToggleSidebar}
+              className="btn btn-ghost btn-sm btn-square"
+            >
+              <span className="sr-only">Open menu</span>
+              <MenuIcon />
+            </button>
+
+            {isSidebarOpen && (
+              <div
+                onClick={handleToggleSidebar}
+                className="bg-base-100/80 pointer-events-auto absolute top-0 left-0 flex h-screen w-full flex-col items-center justify-center gap-6 backdrop-blur-xs duration-300"
+              >
+                {NAV_LINKS.map((link) => (
+                  <Link
+                    key={link.labelKey}
+                    href={link.href}
+                    onClick={(e) => {
+                      handleClick(e, link.href);
+                    }}
+                    className="text-base-content hover:text-info text-xl font-bold transition-colors"
+                  >
+                    {t(link.labelKey)}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

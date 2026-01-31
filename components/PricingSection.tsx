@@ -1,14 +1,14 @@
 "use client";
 
-import { Check } from "lucide-react";
 import { useTranslation } from "@/lib/translations";
+import { Check } from "lucide-react";
 
 export default function PricingSection() {
   const { t } = useTranslation();
-  const amenities = t("pricing.amenities") as string[];
+  const amenities = t("pricing.amenities") as never as string[];
 
   return (
-    <section id="pricing" className="bg-base-100 py-16 duration-300">
+    <section id="pricing" className="bg-base-100 py-20 duration-300">
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-6xl">
           <div className="grid items-center gap-12 md:grid-cols-2">

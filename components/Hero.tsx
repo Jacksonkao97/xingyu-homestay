@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useTranslation } from "@/lib/translations";
+import Image from "next/image";
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -9,16 +9,17 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="bg-base-200 relative flex min-h-screen items-center justify-center pt-18 duration-300"
+      className="bg-base-200 relative mt-16 flex min-h-[calc(100vh-64px)] duration-300"
     >
       {/* Hero Container with Rounded Corners */}
-      <div className="container mx-auto px-6 py-6">
-        <div className="relative flex min-h-120 items-center justify-center overflow-hidden rounded-4xl shadow-2xl md:min-h-180">
+      <div className="container flex flex-col justify-center px-0 py-0 sm:mx-auto sm:px-6 sm:py-6">
+        <div className="relative flex min-h-120 flex-1 items-center justify-center overflow-hidden sm:rounded-4xl md:min-h-180">
           {/* Background Image */}
           <Image
             src="/images/hero-room.jpg"
             alt="Star-Whisper Cottage Modern Interior"
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
