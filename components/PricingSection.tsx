@@ -8,8 +8,8 @@ export default function PricingSection() {
   const amenities = t("pricing.amenities") as never as string[];
 
   return (
-    <section id="pricing" className="bg-base-100 py-20 duration-300">
-      <div className="container mx-auto px-6">
+    <section id="pricing" className="bg-base-100 py-10 duration-300">
+      <div className="container mx-auto px-3 py-3 md:px-6">
         <div className="mx-auto max-w-6xl">
           <div className="grid items-center gap-12 md:grid-cols-2">
             {/* Left Side - Description & Amenities */}

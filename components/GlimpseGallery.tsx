@@ -63,17 +63,19 @@ export default function GlimpseGallery() {
 
   return (
     <>
-      <section id="gallery" className="bg-base-300 py-16 duration-300">
-        <div className="container mx-auto px-6">
+      <section id="gallery" className="bg-base-300 py-10 duration-300">
+        <div className="container mx-auto px-3 py-3 md:px-6">
           {/* Header with Navigation */}
-          <div className="mb-16 flex items-start justify-between">
-            <h2 className="text-base-content text-2xl font-bold md:text-4xl">
-              {t("gallery.title")}
-              <br />
-              <span className="text-base-content/70 text-base font-normal">
+          <div className="mb-10 flex items-start justify-between">
+            <div>
+              <h2 className="text-base-content text-2xl leading-normal font-bold md:text-4xl">
+                {t("gallery.title")}
+                {/* <br /> */}
+              </h2>
+              <span className="text-base-content/70 text-sm font-normal sm:text-base">
                 {t("gallery.subtitle")}
               </span>
-            </h2>
+            </div>
 
             <div className="flex items-center gap-2">
               <button
