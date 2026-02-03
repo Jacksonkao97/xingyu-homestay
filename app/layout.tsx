@@ -1,6 +1,12 @@
+import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
+import SmoothScroll from "@/components/SmoothScroll";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { Inter, Noto_Sans_SC } from "next/font/google";
+import { cookies } from "next/headers";
 import "./globals.css";
 
 const inter = Inter({
@@ -34,7 +40,6 @@ export const metadata: Metadata = {
     "kundasang cabin",
     "star-whisper cottage",
   ],
-  authors: [{ name: "星语小屋" }],
   openGraph: {
     title: "星语小屋 Star-Whisper Cottage | Nature Escape in Kundasang, Sabah",
     description:
@@ -75,34 +80,17 @@ export const metadata: Metadata = {
   },
 };
 
-import Footer from "@/components/Footer";
-import Navigation from "@/components/Navigation";
-import SmoothScroll from "@/components/SmoothScroll";
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const lang = cookieStore.get("NEXT_LOCALE")?.value || "en";
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning>
       <head>
-        {/* Theme initialization script - runs before page renders to prevent FOUC */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const rawTheme = localStorage.getItem('theme-storage');
-                  const theme = rawTheme ? JSON.parse(rawTheme).state.theme : 'xingyu';
-                  document.documentElement.setAttribute('data-theme', theme);
-                } catch (e) {
-                  document.documentElement.setAttribute('data-theme', 'xingyu');
-                }
-              })();
-            `,
-          }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -119,8 +107,11 @@ export default function RootLayout({
                 addressRegion: "Sabah",
                 addressCountry: "Malaysia",
               },
-              telephone: "+60198207639",
-              email: "kao1239@gmail.com",
+              telephone:
+                "+" +
+                (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "60123456789"),
+              email:
+                process.env.NEXT_PUBLIC_MAILBOX || "contact@xingyucabin.com",
               priceRange: "RM350 - RM500",
               amenityFeature: [
                 { "@type": "LocationFeatureSpecification", name: "Kitchen" },
@@ -146,14 +137,19 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${notoSansSC.variable} antialiased`}>
-        <NextIntlClientProvider>
-          <header>
-            <Navigation />
-          </header>
-          <SmoothScroll>{children}</SmoothScroll>
-          <Footer />
-        </NextIntlClientProvider>
+        <ThemeProvider>
+          <NextIntlClientProvider>
+            <header>
+              <Navigation />
+            </header>
+            <SmoothScroll>{children}</SmoothScroll>
+            <Footer />
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
+      {process.env.NODE_ENV === "production" && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
+      )}
     </html>
   );
 }
