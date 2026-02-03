@@ -1,10 +1,23 @@
 "use client";
 
+import { useLenis } from "lenis/react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 export default function Hero() {
+  const lenis = useLenis();
   const t = useTranslations("Hero");
+
+  const handleCTA = (e: React.MouseEvent, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      lenis?.scrollTo(href, {
+        offset: -64, // Adjust if you have a sticky header
+        duration: 1.5, // Custom speed for this specific jump
+        lerp: 0.1,
+      });
+    }
+  };
 
   return (
     <section
@@ -29,7 +42,7 @@ export default function Hero() {
 
           {/* Centered Content */}
           <div className="relative z-10 max-w-3xl px-6 text-center">
-            <h1 className="mb-6 text-5xl leading-tight font-bold text-white md:text-6xl lg:text-7xl">
+            <h1 className="mb-6 text-5xl leading-20 font-bold text-white md:text-6xl lg:text-7xl">
               {t("title")}
             </h1>
 
@@ -37,7 +50,10 @@ export default function Hero() {
               {t("subtitle")}
             </p>
 
-            <button className="btn btn-info btn-lg shadow-lg">
+            <button
+              onClick={(e) => handleCTA(e, "#contact")}
+              className="btn btn-info btn-lg shadow-lg"
+            >
               {t("cta")}
             </button>
           </div>

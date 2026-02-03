@@ -1,11 +1,11 @@
 "use client";
 
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { useTranslation } from "@/lib/translations";
+import Navigation from "@/components/Navigation";
+import { useTranslations } from "next-intl";
 
 export default function PrivacyPage() {
-  const { t } = useTranslation();
+  const t = useTranslations("Privacy");
 
   return (
     <main>

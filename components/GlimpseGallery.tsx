@@ -3,14 +3,15 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useLenis } from "lenis/react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useMessages, useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function GlimpseGallery() {
   const lenis = useLenis();
   const t = useTranslations("Gallery");
-  const galleryItems = t("items") as never as {
+  const messages = useMessages();
+  const galleryItems = Object.values(messages.Gallery.items) as {
     id: number;
     title: string;
     image: string;

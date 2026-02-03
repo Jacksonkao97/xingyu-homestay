@@ -1,11 +1,12 @@
 "use client";
 
 import { Check } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useMessages, useTranslations } from "next-intl";
 
 export default function PricingSection() {
   const t = useTranslations("PricingSection");
-  const amenities = t("amenities") as never as string[];
+  const message = useMessages();
+  const amenities = Object.values(message.PricingSection.amenities) as string[];
 
   return (
     <section id="pricing" className="bg-base-100 py-10 duration-300">
@@ -56,9 +57,9 @@ export default function PricingSection() {
                     </div>
                   </div>
 
-                  <button className="btn btn-info btn-lg w-full">
+                  {/* <button  className="btn btn-info btn-lg w-full">
                     {t("bookNow")}
-                  </button>
+                  </button> */}
 
                   <p className="text-base-content/50 text-xs">
                     {t("disclaimer")}

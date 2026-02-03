@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 
 export default function ContactSection() {
   const t = useTranslations("Contact");
+
   return (
     <section id="contact" className="bg-base-300 py-10 duration-300">
       <div className="container mx-auto px-3 py-3 md:px-6">

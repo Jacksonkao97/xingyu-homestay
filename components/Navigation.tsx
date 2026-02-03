@@ -6,6 +6,7 @@ import { MenuIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
+import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
 
 const NAV_LINKS = [
@@ -50,7 +51,7 @@ export default function Navigation() {
               <span className="text-info-content text-lg font-bold">S</span>
             </div>
             <span className="text-base-content inline text-lg font-bold">
-              {t("logo")}
+              {t("siteName")}
             </span>
           </Link>
 
@@ -70,6 +71,7 @@ export default function Navigation() {
 
           {/* Right side: Language + Theme */}
           <div className="hidden items-center md:flex md:gap-4">
+            <LanguageSwitcher />
             <ThemeSwitcher />
           </div>
 

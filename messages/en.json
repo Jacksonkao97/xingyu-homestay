@@ -1,11 +1,10 @@
 {
   "Navigation": {
-    "logo": "Star-Whisper Cottage",
+    "siteName": "Star-Whisper Cottage",
     "home": "Home",
     "gallery": "Gallery",
     "pricing": "Pricing",
-    "contact": "Contact",
-    "bookNow": "Book Now"
+    "contact": "Contact"
   },
   "Hero": {
     "title": "Experience Comfort Like Never Before",
@@ -33,7 +32,6 @@
     "subtitle": "Enjoy a range of modern amenities designed for your comfort.",
     "perNight": "per night",
     "bookNow": "Book Now",
-    "allAmenities": "All Amenities",
     "standardRate": "Standard Rate",
     "disclaimer": "Prices may vary during holidays and special events",
     "amenities": [
