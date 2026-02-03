@@ -1,5 +1,6 @@
 "use client";
 
+import { GoogleMapsEmbed, sendGAEvent } from "@next/third-parties/google";
 import { ExternalLink, Mail, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -32,6 +33,13 @@ export default function ContactSection() {
                   href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "1234567890"}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    sendGAEvent("event", "contact_whatsapp_click", {
+                      transport_type: "whatsapp",
+                      event_category: "contact",
+                      event_label: "whatsapp_click",
+                    })
+                  }
                   className="bg-base-100 border-base-300 hover:border-info group flex items-center gap-4 rounded-2xl border-2 p-4 transition-colors"
                 >
                   <div className="bg-success/10 group-hover:bg-success/20 flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-colors">
@@ -58,6 +66,13 @@ export default function ContactSection() {
                   }
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    sendGAEvent("event", "contact_email_click", {
+                      transport_type: "email",
+                      event_category: "contact",
+                      event_label: "email_click",
+                    })
+                  }
                   className="bg-base-100 border-base-300 hover:border-info group flex items-center gap-4 rounded-2xl border-2 p-4 transition-colors"
                 >
                   <div className="bg-error/10 group-hover:bg-error/20 flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-colors">
@@ -79,7 +94,17 @@ export default function ContactSection() {
 
             {/* Right Side - Map */}
             <div className="relative h-80 min-h-100 overflow-hidden rounded-2xl shadow-xl md:h-full">
-              <iframe
+              <GoogleMapsEmbed
+                mode="place"
+                apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}
+                width="100%"
+                height="100%"
+                loading="lazy"
+                language="en"
+                q="星語小屋,Jalan Kundasang Kauluan, 89308 Ranau, Sabah"
+              />
+
+              {/* <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.9457466263034!2d116.57719167567859!3d6.002188329000352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x323b99d2c4ba616b%3A0xdc9e6b9b90f2ce56!2z5pif6Kqe5bCP5bGL!5e0!3m2!1sen!2smy!4v1769944439278!5m2!1sen!2smy"
                 width="100%"
                 height="100%"
@@ -88,7 +113,7 @@ export default function ContactSection() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="absolute inset-0"
-              />
+              /> */}
             </div>
           </div>
         </div>
