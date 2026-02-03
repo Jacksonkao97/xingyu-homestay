@@ -1,24 +1,23 @@
 "use client";
 
-import { useTranslation } from "@/lib/translations";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLenis } from "lenis/react";
 import { MenuIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
-import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
 
 const NAV_LINKS = [
-  { href: "#home", labelKey: "nav.home" },
-  { href: "#gallery", labelKey: "nav.gallery" },
-  { href: "#pricing", labelKey: "nav.pricing" },
-  { href: "#contact", labelKey: "nav.contact" },
+  { href: "#home", labelKey: "home" },
+  { href: "#gallery", labelKey: "gallery" },
+  { href: "#pricing", labelKey: "pricing" },
+  { href: "#contact", labelKey: "contact" },
 ];
 
 export default function Navigation() {
   const lenis = useLenis();
-  const { t } = useTranslation();
+  const t = useTranslations("Navigation");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleClick = (e: React.MouseEvent, href: string) => {
@@ -51,7 +50,7 @@ export default function Navigation() {
               <span className="text-info-content text-lg font-bold">S</span>
             </div>
             <span className="text-base-content inline text-lg font-bold">
-              {t("brand.logo")}
+              {t("logo")}
             </span>
           </Link>
 
@@ -71,7 +70,6 @@ export default function Navigation() {
 
           {/* Right side: Language + Theme */}
           <div className="hidden items-center md:flex md:gap-4">
-            <LanguageSwitcher />
             <ThemeSwitcher />
           </div>
 

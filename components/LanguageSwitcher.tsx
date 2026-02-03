@@ -1,23 +1,9 @@
 "use client";
 
 import { useLanguageStore } from "@/store/useLanguageStore";
-import { useEffect, useState } from "react";
 
 export default function LanguageSwitcher() {
   const { language, setLanguage } = useLanguageStore();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return (
-      <button className="btn btn-ghost btn-sm px-2">
-        <span className="opacity-0">EN</span>
-      </button>
-    );
-  }
 
   return (
     <div className="flex items-center gap-1">

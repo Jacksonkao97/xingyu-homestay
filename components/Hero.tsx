@@ -1,10 +1,10 @@
 "use client";
 
-import { useTranslation } from "@/lib/translations";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 export default function Hero() {
-  const { t } = useTranslation();
+  const t = useTranslations("Hero");
 
   return (
     <section
@@ -30,15 +30,15 @@ export default function Hero() {
           {/* Centered Content */}
           <div className="relative z-10 max-w-3xl px-6 text-center">
             <h1 className="mb-6 text-5xl leading-tight font-bold text-white md:text-6xl lg:text-7xl">
-              {t("hero.title")}
+              {t("title")}
             </h1>
 
             <p className="mx-auto mb-8 max-w-2xl text-lg text-white/90 md:text-xl">
-              {t("hero.subtitle")}
+              {t("subtitle")}
             </p>
 
             <button className="btn btn-info btn-lg shadow-lg">
-              {t("hero.cta")}
+              {t("cta")}
             </button>
           </div>
         </div>
