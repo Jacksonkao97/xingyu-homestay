@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
 import { Inter, Noto_Sans_SC } from "next/font/google";
 import "./globals.css";
 
@@ -75,6 +76,7 @@ export const metadata: Metadata = {
 };
 
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 import SmoothScroll from "@/components/SmoothScroll";
 
 export default function RootLayout({
@@ -91,8 +93,8 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  const raw = localStorage.getItem('theme-storage');
-                  const theme = raw ? JSON.parse(raw).state.theme : 'xingyu';
+                  const rawTheme = localStorage.getItem('theme-storage');
+                  const theme = rawTheme ? JSON.parse(rawTheme).state.theme : 'xingyu';
                   document.documentElement.setAttribute('data-theme', theme);
                 } catch (e) {
                   document.documentElement.setAttribute('data-theme', 'xingyu');
@@ -144,8 +146,13 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${notoSansSC.variable} antialiased`}>
-        <SmoothScroll>{children}</SmoothScroll>
-        <Footer />
+        <NextIntlClientProvider>
+          <header>
+            <Navigation />
+          </header>
+          <SmoothScroll>{children}</SmoothScroll>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

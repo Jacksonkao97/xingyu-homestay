@@ -30,12 +30,12 @@ export const useThemeStore = create<ThemeState>()(
     }),
     {
       name: "theme-storage",
-      version: 1,
-      migrate: (persistedState: any, version: number) => {
-        if (version === 0) {
-          // Migration from version 0 to 1
-          // We can add logic here if the state structure changed
+      version: 1.1,
+      migrate: (persistedState: unknown, version: number) => {
+        if (version < 1) {
+          return { theme: "xingyu" };
         }
+
         return persistedState as ThemeState;
       },
     },

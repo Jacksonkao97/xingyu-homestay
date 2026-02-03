@@ -1,11 +1,11 @@
 "use client";
 
-import { useTranslation } from "@/lib/translations";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { t } = useTranslation();
+  const t = useTranslations("Footer");
 
   return (
     <footer className="bg-base-100 border-base-300 border-t py-8 duration-300">
@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="text-base-content/60 flex flex-col items-center justify-between gap-4 text-sm md:flex-row">
           {/* Copyright */}
           <div>
-            © {currentYear} {t("brand.name")}. {t("footer.rights")}
+            © {currentYear} {t("name")}. {t("rights")}
           </div>
 
           {/* Links */}
@@ -22,19 +22,19 @@ export default function Footer() {
               href="/privacy"
               className="hover:text-base-content transition-colors"
             >
-              {t("footer.privacy")}
+              {t("privacy")}
             </Link>
             <Link
               href="/terms"
               className="hover:text-base-content transition-colors"
             >
-              {t("footer.terms")}
+              {t("terms")}
             </Link>
             <Link
               href="/sitemap"
               className="hover:text-base-content transition-colors"
             >
-              {t("footer.sitemap")}
+              {t("sitemap")}
             </Link>
           </div>
         </div>

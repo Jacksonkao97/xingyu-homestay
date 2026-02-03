@@ -1,10 +1,10 @@
 "use client";
 
-import { useTranslation } from "@/lib/translations";
 import { ExternalLink, Mail, Phone } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function ContactSection() {
-  const { t } = useTranslation();
+  const t = useTranslations("Contact");
 
   return (
     <section id="contact" className="bg-base-300 py-10 duration-300">
@@ -15,16 +15,14 @@ export default function ContactSection() {
             <div className="space-y-4 sm:space-y-8">
               {/* Section Title */}
               <h2 className="text-base-content text-3xl font-bold md:text-4xl">
-                {t("contact.ready")}
+                {t("ready")}
               </h2>
 
               <div>
                 <h3 className="text-base-content mb-0.5 text-2xl font-bold">
-                  {t("contact.getInTouch")}
+                  {t("getInTouch")}
                 </h3>
-                <p className="text-base-content/70 text-sm">
-                  {t("contact.subtitle")}
-                </p>
+                <p className="text-base-content/70 text-sm">{t("subtitle")}</p>
               </div>
 
               {/* Contact Methods */}
@@ -41,7 +39,7 @@ export default function ContactSection() {
                   </div>
                   <div className="flex-1">
                     <p className="text-base-content/60 text-xs font-semibold tracking-wider uppercase">
-                      {t("contact.whatsapp")}
+                      {t("whatsapp")}
                     </p>
                     <p className="text-base-content font-semibold">
                       {"+" + process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ||
@@ -67,7 +65,7 @@ export default function ContactSection() {
                   </div>
                   <div className="flex-1">
                     <p className="text-base-content/60 text-xs font-semibold tracking-wider uppercase">
-                      {t("contact.email")}
+                      {t("email")}
                     </p>
                     <p className="text-base-content font-semibold">
                       {process.env.NEXT_PUBLIC_MAILBOX ||

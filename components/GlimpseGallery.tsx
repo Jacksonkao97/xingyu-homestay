@@ -1,16 +1,17 @@
 "use client";
 
-import { useTranslation } from "@/lib/translations";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLenis } from "lenis/react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useMessages, useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function GlimpseGallery() {
   const lenis = useLenis();
-  const { t, language } = useTranslation();
-  const galleryItems = t("gallery.items") as never as {
+  const t = useTranslations("Gallery");
+  const messages = useMessages();
+  const galleryItems = Object.values(messages.Gallery.items) as {
     id: number;
     title: string;
     image: string;
@@ -69,11 +70,11 @@ export default function GlimpseGallery() {
           <div className="mb-10 flex items-start justify-between">
             <div>
               <h2 className="text-base-content text-2xl leading-normal font-bold md:text-4xl">
-                {t("gallery.title")}
+                {t("title")}
                 {/* <br /> */}
               </h2>
               <span className="text-base-content/70 text-sm font-normal sm:text-base">
-                {t("gallery.subtitle")}
+                {t("subtitle")}
               </span>
             </div>
 
@@ -99,7 +100,7 @@ export default function GlimpseGallery() {
           <div className="relative">
             <AnimatePresence mode="wait">
               <motion.div
-                key={`${currentIndex}-${language}`}
+                key={`${currentIndex}-${itemsPerPage}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}

@@ -1,0 +1,59 @@
+{
+  "Navigation": {
+    "siteName": "星语小屋",
+    "home": "首页",
+    "gallery": "画廊",
+    "pricing": "价格",
+    "contact": "联系我们"
+  },
+  "Hero": {
+    "title": "体验前所未有的舒适感",
+    "subtitle": "在自然的怀抱中体验奢华生活。您完美的度假胜地等待着您的光临。",
+    "cta": "预订您的住宿"
+  },
+  "Gallery": {
+    "title": "内部一瞥",
+    "subtitle": "探索我们小屋的美丽内饰和舒适氛围。",
+    "items": [
+      { "id": 1, "title": "主卧室", "image": "/images/hero-room.jpg" },
+      { "id": 2, "title": "生活区", "image": "/images/hero-room.jpg" },
+      { "id": 3, "title": "现代浴室", "image": "/images/hero-room.jpg" },
+      { "id": 4, "title": "厨房", "image": "/images/hero-room.jpg" },
+      { "id": 5, "title": "用餐区", "image": "/images/hero-room.jpg" },
+      { "id": 6, "title": "阳台景观", "image": "/images/hero-room.jpg" }
+    ]
+  },
+  "PricingSection": {
+    "title": "设施与价格",
+    "subtitle": "享受一系列为您舒适而设计的现代设施。",
+    "perNight": "每晚",
+    "bookNow": "立即预订",
+    "standardRate": "标准价格",
+    "disclaimer": "价格可能会在节假日和特别活动期间有所变动",
+    "amenities": [
+      "高速 Wi-Fi",
+      "完整厨房",
+      "私人停车位",
+      "自然空调",
+      "薄雾森林景观"
+    ]
+  },
+  "Contact": {
+    "ready": "准备好放松了吗？",
+    "getInTouch": "联系我们",
+    "subtitle": "对您的住宿有疑问吗？我们在这里帮助您规划完美的度假。",
+    "whatsapp": "WhatsApp",
+    "email": "电子邮件"
+  },
+  "Footer": {
+    "name": "星语小屋",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "sitemap": "网站地图",
+    "rights": "版权所有。"
+  },
+  "brand": {
+    "name": "星语小屋",
+    "logo": "星语小屋"
+  }
+}

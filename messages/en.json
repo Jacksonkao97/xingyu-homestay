@@ -1,0 +1,63 @@
+{
+  "Navigation": {
+    "siteName": "Star-Whisper Cottage",
+    "home": "Home",
+    "gallery": "Gallery",
+    "pricing": "Pricing",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "title": "Experience Comfort Like Never Before",
+    "subtitle": "Experience luxury living in the heart of nature. Your perfect getaway awaits.",
+    "cta": "Book Your Stay"
+  },
+  "Gallery": {
+    "title": "A Glimpse Inside",
+    "subtitle": "Explore the beautiful interiors and cozy ambiance of our cottage.",
+    "items": [
+      {
+        "id": 1,
+        "title": "Master Bedroom",
+        "image": "/images/hero-room.jpg"
+      },
+      { "id": 2, "title": "Living Area", "image": "/images/hero-room.jpg" },
+      { "id": 3, "title": "Modern Bath", "image": "/images/hero-room.jpg" },
+      { "id": 4, "title": "Kitchen", "image": "/images/hero-room.jpg" },
+      { "id": 5, "title": "Dining Area", "image": "/images/hero-room.jpg" },
+      { "id": 6, "title": "Balcony View", "image": "/images/hero-room.jpg" }
+    ]
+  },
+  "PricingSection": {
+    "title": "Amenities & Pricing",
+    "subtitle": "Enjoy a range of modern amenities designed for your comfort.",
+    "perNight": "per night",
+    "bookNow": "Book Now",
+    "standardRate": "Standard Rate",
+    "disclaimer": "Prices may vary during holidays and special events",
+    "amenities": [
+      "High-speed Wi-Fi",
+      "Full Kitchen",
+      "Private Parking",
+      "Nature Air Conditioning",
+      "Misty Forest Views"
+    ]
+  },
+  "Contact": {
+    "ready": "Ready to Relax?",
+    "getInTouch": "Get in Touch",
+    "subtitle": "Have questions about your stay? We're here to help you plan your perfect getaway.",
+    "whatsapp": "WhatsApp",
+    "email": "Email"
+  },
+  "Footer": {
+    "name": "Star-Whisper Cottage",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "sitemap": "Sitemap",
+    "rights": "All rights reserved."
+  },
+  "brand": {
+    "name": "Star-Whisper Cottage",
+    "logo": "Star-Whisper"
+  }
+}

@@ -1,11 +1,12 @@
 "use client";
 
-import { useTranslation } from "@/lib/translations";
 import { Check } from "lucide-react";
+import { useMessages, useTranslations } from "next-intl";
 
 export default function PricingSection() {
-  const { t } = useTranslation();
-  const amenities = t("pricing.amenities") as never as string[];
+  const t = useTranslations("PricingSection");
+  const message = useMessages();
+  const amenities = Object.values(message.PricingSection.amenities) as string[];
 
   return (
     <section id="pricing" className="bg-base-100 py-10 duration-300">
@@ -16,10 +17,10 @@ export default function PricingSection() {
             <div className="space-y-6">
               <div className="space-y-4">
                 <h2 className="text-base-content text-3xl font-bold md:text-4xl">
-                  {t("pricing.title")}
+                  {t("title")}
                 </h2>
                 <p className="text-base-content/70 text-sm md:text-base">
-                  {t("hero.subtitle")}
+                  {t("subtitle")}
                 </p>
               </div>
 
@@ -44,24 +45,24 @@ export default function PricingSection() {
                 <div className="card-body space-y-6 text-center">
                   <div>
                     <p className="text-base-content/60 mb-2 text-xs font-semibold tracking-wider uppercase">
-                      {t("pricing.standardRate")}
+                      {t("standardRate")}
                     </p>
                     <div className="flex items-baseline justify-center gap-1">
                       <span className="text-base-content text-5xl font-bold">
                         RM400
                       </span>
                       <span className="text-base-content/60">
-                        /{t("pricing.perNight")}
+                        /{t("perNight")}
                       </span>
                     </div>
                   </div>
 
-                  <button className="btn btn-info btn-lg w-full">
-                    {t("nav.bookNow")}
-                  </button>
+                  {/* <button  className="btn btn-info btn-lg w-full">
+                    {t("bookNow")}
+                  </button> */}
 
                   <p className="text-base-content/50 text-xs">
-                    {t("pricing.disclaimer")}
+                    {t("disclaimer")}
                   </p>
                 </div>
               </div>

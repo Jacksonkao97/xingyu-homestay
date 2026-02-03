@@ -1,12 +1,12 @@
 "use client";
 
-import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { useTranslation } from "@/lib/translations";
 
 export default function SitemapPage() {
-  const { t } = useTranslation();
+  const t = useTranslations("Sitemap");
 
   const links = [
     { title: t("nav.home"), href: "/" },
@@ -23,13 +23,13 @@ export default function SitemapPage() {
       <div className="bg-base-200 min-h-screen pt-32 pb-20">
         <div className="container mx-auto max-w-4xl px-6">
           <h1 className="text-base-content mb-8 text-4xl font-bold">
-            {t("sitemap.title")}
+            {t("title")}
           </h1>
 
           <div className="mt-12 grid gap-8 md:grid-cols-2">
             <div>
               <h2 className="text-primary mb-6 text-xl font-bold">
-                {t("sitemap.mainNav")}
+                {t("mainNav")}
               </h2>
               <ul className="space-y-4">
                 {links.slice(0, 4).map((link) => (
@@ -48,7 +48,7 @@ export default function SitemapPage() {
 
             <div>
               <h2 className="text-primary mb-6 text-xl font-bold">
-                {t("sitemap.legalInfo")}
+                {t("legalInfo")}
               </h2>
               <ul className="space-y-4">
                 {links.slice(4).map((link) => (
