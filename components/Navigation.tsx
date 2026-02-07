@@ -1,6 +1,5 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
 import { useLenis } from "lenis/react";
 import { MenuIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -85,30 +84,25 @@ export default function Navigation() {
               <MenuIcon />
             </button>
 
-            <AnimatePresence>
-              {isSidebarOpen && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  onClick={handleToggleSidebar}
-                  className="bg-base-100/80 pointer-events-auto absolute top-0 left-0 flex h-screen w-full flex-col items-center justify-center gap-6 space-y-8 backdrop-blur-xs duration-300"
-                >
-                  {NAV_LINKS.map((link) => (
-                    <Link
-                      key={link.labelKey}
-                      href={link.href}
-                      onClick={(e) => {
-                        handleClick(e, link.href);
-                      }}
-                      className="text-base-content hover:text-info text-xl font-bold transition-colors"
-                    >
-                      {t(link.labelKey)}
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {isSidebarOpen && (
+              <div
+                onClick={handleToggleSidebar}
+                className="bg-base-100/80 pointer-events-auto absolute top-0 left-0 flex h-screen w-full flex-col items-center justify-center gap-6 space-y-8 backdrop-blur-xs duration-300"
+              >
+                {NAV_LINKS.map((link) => (
+                  <Link
+                    key={link.labelKey}
+                    href={link.href}
+                    onClick={(e) => {
+                      handleClick(e, link.href);
+                    }}
+                    className="text-base-content/70 hover:text-info text-xl font-bold transition-colors"
+                  >
+                    {t(link.labelKey)}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
