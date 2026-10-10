@@ -11,3 +11,7 @@ npm run build
 ```
 
 See [CLAUDE.md](CLAUDE.md) for the architecture, conventions and the environment variables to set on Vercel.
+
+## License
+
+The source code is released under the [MIT License](LICENSE). The cottage's name, logo, photos and written content are not covered by it and remain all rights reserved; see [LICENSE](LICENSE) for details.
