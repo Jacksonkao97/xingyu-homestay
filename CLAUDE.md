@@ -56,14 +56,14 @@ User actions (theme toggle, language switch, contact clicks) are tracked with `s
 
 `.env*` files are git-ignored. Variables used:
 
-| Variable | Used for |
-|---|---|
-| `NEXT_PUBLIC_BASE_URL` | metadata, robots, sitemap (defaults to `https://xingyucabin.com`) |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER` | WhatsApp link and JSON-LD phone (digits only, no `+`) |
-| `NEXT_PUBLIC_MAILBOX` | contact email |
-| `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` | Google Maps embed in the contact section |
-| `NEXT_PUBLIC_GA_ID` | Google Analytics (production only) |
-| `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `GMAIL_RECEIVER` | `/api/send-email` |
+| Variable                                             | Used for                                                          |
+| ---------------------------------------------------- | ----------------------------------------------------------------- |
+| `NEXT_PUBLIC_BASE_URL`                               | metadata, robots, sitemap (defaults to `https://xingyucabin.com`) |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER`                        | WhatsApp link and JSON-LD phone (digits only, no `+`)             |
+| `NEXT_PUBLIC_MAILBOX`                                | contact email                                                     |
+| `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY`                    | Google Maps embed in the contact section                          |
+| `NEXT_PUBLIC_GA_ID`                                  | Google Analytics (production only)                                |
+| `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `GMAIL_RECEIVER` | `/api/send-email`                                                 |
 
 ## Conventions
 
