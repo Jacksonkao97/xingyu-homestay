@@ -31,12 +31,12 @@
     "next": "下一张",
     "counter": "第 {current} 张，共 {total} 张",
     "items": [
-      { "title": "主卧室", "image": "/images/gallery/bedroom.jpg" },
-      { "title": "客厅", "image": "/images/gallery/living.jpg" },
-      { "title": "现代浴室", "image": "/images/gallery/bath.jpg" },
+      { "title": "窗外山景", "image": "/images/gallery/view.jpg" },
+      { "title": "双床房", "image": "/images/gallery/bedroom.jpg" },
+      { "title": "第二卧室", "image": "/images/gallery/bedroom-2.jpg" },
+      { "title": "客厅与餐厅", "image": "/images/gallery/living.jpg" },
       { "title": "厨房", "image": "/images/gallery/kitchen.jpg" },
-      { "title": "用餐区", "image": "/images/gallery/dining.jpg" },
-      { "title": "阳台景观", "image": "/images/gallery/balcony.jpg" }
+      { "title": "浴室", "image": "/images/gallery/bath.jpg" }
     ]
   },
   "PricingSection": {
