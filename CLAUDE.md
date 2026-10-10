@@ -33,6 +33,7 @@ Next.js 16 (App Router) with React 19 and TypeScript 7 (strict), Tailwind CSS v4
 - `app/api/send-email/route.ts` is a POST endpoint that sends an inquiry email through Gmail with nodemailer. No UI calls it yet.
 - `app/robots.ts` and `app/sitemap.xml/route.ts` generate SEO files; `app/sitemap/page.tsx` is the human-readable sitemap. When adding a page, add it to `PAGES` in `lib/site.ts` and to the sitemap page.
 - `public/images/og-image.jpg` is the link-preview image (1200×630), a screenshot of the hero.
+- The site icon (a cottage under Kinabalu and a star) is `app/icon.svg`, picked up by Next.js file conventions. `app/favicon.ico` (16/32/48) and `app/apple-icon.png` (180×180, square corners, since iOS rounds them) are rendered from it; regenerate both whenever the SVG changes.
 
 ### Internationalization
 
