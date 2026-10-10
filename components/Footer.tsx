@@ -1,42 +1,41 @@
-"use client";
-
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import BrandMark from "./BrandMark";
+
+const LINKS = [
+  { href: "/privacy", key: "privacy" },
+  { href: "/terms", key: "terms" },
+  { href: "/sitemap", key: "sitemap" },
+] as const;
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
   const t = useTranslations("Footer");
 
   return (
-    <footer className="bg-base-100 border-base-300 border-t py-8 duration-300">
-      <div className="container mx-auto px-3 py-3 md:px-6">
-        <div className="text-base-content/60 flex flex-col items-center justify-between gap-4 text-sm md:flex-row">
-          {/* Copyright */}
-          <div>
-            © {currentYear} {t("name")}. {t("rights")}
-          </div>
-
-          {/* Links */}
-          <div className="flex items-center gap-6">
-            <Link
-              href="/privacy"
-              className="hover:text-base-content transition-colors"
-            >
-              {t("privacy")}
-            </Link>
-            <Link
-              href="/terms"
-              className="hover:text-base-content transition-colors"
-            >
-              {t("terms")}
-            </Link>
-            <Link
-              href="/sitemap"
-              className="hover:text-base-content transition-colors"
-            >
-              {t("sitemap")}
-            </Link>
-          </div>
+    <footer className="bg-base-200 border-base-content/5 border-t">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-12 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="flex items-center gap-2.5 font-serif text-lg font-semibold">
+            <BrandMark className="size-7" />
+            {t("name")}
+          </p>
+          <p className="text-base-content/60 mt-2">{t("tagline")}</p>
+        </div>
+        <div className="text-base-content/60 flex flex-col gap-3 text-sm md:items-end">
+          <nav className="flex gap-6">
+            {LINKS.map(({ href, key }) => (
+              <Link
+                key={key}
+                href={href}
+                className="hover:text-base-content transition-colors"
+              >
+                {t(key)}
+              </Link>
+            ))}
+          </nav>
+          <p>
+            © {new Date().getFullYear()} {t("name")}. {t("rights")}
+          </p>
         </div>
       </div>
     </footer>

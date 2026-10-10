@@ -1,23 +1,17 @@
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 export default function NotFound() {
+  const t = useTranslations("NotFound");
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50">
-      <div className="text-center">
-        <h1 className="mb-4 text-6xl font-bold text-gray-900">404</h1>
-        <p className="mb-2 text-2xl font-semibold text-gray-700">
-          Page Not Found
-        </p>
-        <p className="mb-8 text-gray-600">
-          Sorry, the page you&apos;re looking for doesn&apos;t exist.
-        </p>
-        <Link
-          href="/"
-          className="inline-block rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition-colors hover:bg-blue-700"
-        >
-          Go Home
-        </Link>
-      </div>
-    </div>
+    <main className="mx-auto flex min-h-[80svh] max-w-xl flex-col justify-center px-5 pt-24 pb-16">
+      <p className="text-accent font-serif text-7xl font-semibold">404</p>
+      <h1 className="mt-4 text-4xl font-semibold">{t("title")}</h1>
+      <p className="text-base-content/70 mt-4 text-lg">{t("body")}</p>
+      <Link href="/" className="btn btn-primary mt-8 self-start">
+        {t("home")}
+      </Link>
+    </main>
   );
 }

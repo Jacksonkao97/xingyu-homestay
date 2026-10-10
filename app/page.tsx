@@ -1,5 +1,5 @@
 import ContactSection from "@/components/ContactSection";
-import GlimpseGallery from "@/components/GlimpseGallery";
+import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import PricingSection from "@/components/PricingSection";
 
@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <GlimpseGallery />
+      <Gallery />
       <PricingSection />
       <ContactSection />
     </main>

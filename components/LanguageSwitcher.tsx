@@ -1,65 +1,59 @@
 "use client";
 
-import { useLanguageStore } from "@/store/useLanguageStore"; // Adjust path
+import { LOCALE_COOKIE, type Locale } from "@/i18n/config";
 import { sendGAEvent } from "@next/third-parties/google";
-import Cookies from "js-cookie";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import { useSyncExternalStore } from "react";
+import { useTransition } from "react";
 
-const subscribe = () => () => {};
+const OPTIONS: { locale: Locale; label: string }[] = [
+  { locale: "en", label: "EN" },
+  { locale: "zh", label: "中文" },
+];
 
-export default function LanguageToggle() {
+function saveLocale(locale: Locale) {
+  document.cookie = `${LOCALE_COOKIE}=${locale}; path=/; max-age=31536000; samesite=lax`;
+}
+
+export default function LanguageSwitcher() {
+  const t = useTranslations("Navigation");
+  const current = useLocale();
   const router = useRouter();
-  const { setLanguage } = useLanguageStore();
+  const [isPending, startTransition] = useTransition();
 
-  const language = useSyncExternalStore(
-    subscribe,
-    () => Cookies.get("NEXT_LOCALE") || "en",
-    () => "loading", // The server sees this
-  );
-
-  const handleSwitch = (newLang: "en" | "zh") => {
-    // 1. Update the Cookie (Matches NEXT_LOCALE used in your request.ts)
-    Cookies.set("NEXT_LOCALE", newLang, { expires: 365 });
-
-    // 2. Update Zustand (Updates the client-side state)
-    setLanguage(newLang);
-
-    // 3. Refresh the Server Components
-    // This tells Next.js to re-run request.ts and get new messages
-    router.refresh();
-
-    // 4. Send GA Event
+  const handleSwitch = (locale: Locale) => {
+    if (locale === current) return;
+    saveLocale(locale);
+    // Re-render server components so they pick up the new messages.
+    startTransition(() => router.refresh());
     sendGAEvent("event", "language_switch", {
-      transport_type: "language",
       event_category: "language",
-      event_label: newLang,
+      event_label: locale,
     });
   };
 
-  if (language === "loading") {
-    return (
-      <div className="flex w-18.5 items-center gap-1 opacity-0">
-        {/* Empty but prevents layout shift */}
-      </div>
-    );
-  }
-
   return (
-    <div className="flex items-center gap-1">
-      <button
-        onClick={() => handleSwitch("en")}
-        className={`btn btn-ghost btn-xs px-2 ${language === "en" ? "btn-active text-info" : "opacity-50"}`}
-      >
-        EN
-      </button>
-      <span className="text-base-content/20 text-xs">|</span>
-      <button
-        onClick={() => handleSwitch("zh")}
-        className={`btn btn-ghost btn-xs px-2 ${language === "zh" ? "btn-active text-info" : "opacity-50"}`}
-      >
-        中
-      </button>
+    <div
+      role="group"
+      aria-label={t("language")}
+      className={`border-base-content/15 flex rounded-full border p-0.5 text-sm transition-opacity ${isPending ? "opacity-60" : ""}`}
+    >
+      {OPTIONS.map(({ locale, label }) => (
+        <button
+          key={locale}
+          type="button"
+          lang={locale === "zh" ? "zh-CN" : "en"}
+          aria-pressed={locale === current}
+          onClick={() => handleSwitch(locale)}
+          className={`rounded-full px-3 py-1 transition-colors ${
+            locale === current
+              ? "bg-base-content text-base-100"
+              : "text-base-content/70 hover:text-base-content"
+          }`}
+        >
+          {label}
+        </button>
+      ))}
     </div>
   );
 }

@@ -1,39 +1,21 @@
-import { NextResponse } from "next/server";
+import { PAGES, SITE_URL } from "@/lib/site";
 
-export async function GET() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://xingyucabin.com";
+export function GET() {
+  const lastmod = new Date().toISOString();
+  const urls = PAGES.map(
+    ({ path, changeFrequency, priority }) => `  <url>
+    <loc>${SITE_URL}${path}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${changeFrequency}</changefreq>
+    <priority>${priority.toFixed(1)}</priority>
+  </url>`,
+  ).join("\n");
 
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+  return new Response(
+    `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${baseUrl}</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/privacy</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/terms</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/sitemap</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-</urlset>`.trim();
-
-  return new NextResponse(sitemap, {
-    headers: {
-      "Content-Type": "application/xml",
-    },
-  });
+${urls}
+</urlset>`,
+    { headers: { "Content-Type": "application/xml" } },
+  );
 }
