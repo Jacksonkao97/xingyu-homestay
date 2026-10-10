@@ -9,19 +9,19 @@ Marketing site for 星语小屋 Star-Whisper Cottage, a whole-house homestay in 
 ## Commands
 
 ```bash
-npm install          # lockfile is currently out of sync, so `npm ci` fails until it is regenerated
+npm ci               # install from the lockfile
 npm run dev          # dev server on http://localhost:3000
 npm run build        # production build (also type-checks)
 npm run lint         # ESLint (next core-web-vitals + typescript configs)
-npx tsc --noEmit     # type-check only
+npm run typecheck    # type-check only (TypeScript 7 native `tsc`)
 npx prettier --write .   # format; uses prettier-plugin-tailwindcss to sort classes
 ```
 
-There is no test suite. Validate changes with `npm run lint`, `npx tsc --noEmit` and `npm run build`.
+There is no test suite. Validate changes with `npm run lint`, `npm run typecheck` and `npm run build`.
 
 ## Stack
 
-Next.js 16 (App Router) with React 19 and TypeScript (strict), Tailwind CSS v4 with daisyUI 5, next-intl for i18n, next-themes for light/dark, Zustand for client state, Lenis for smooth scrolling, Framer Motion and Embla Carousel for UI motion, lucide-react for icons. Path alias `@/*` maps to the repo root.
+Next.js 16 (App Router) with React 19 and TypeScript 7 (strict), Tailwind CSS v4 with daisyUI 5, next-intl for i18n, next-themes for light/dark, Zustand for client state, Lenis for smooth scrolling, Framer Motion and Embla Carousel for UI motion, lucide-react for icons. Path alias `@/*` maps to the repo root.
 
 ## Architecture
 
@@ -70,9 +70,8 @@ User actions (theme toggle, language switch, contact clicks) are tracked with `s
 - Prettier with the Tailwind plugin is the formatter; keep class order as the plugin sorts it.
 - Commits use Conventional Commit style prefixes (`feat:`, etc.). Work happens on `dev` and is merged to `main` through pull requests.
 - Images live in `public/images/`; remote images are only allowed from `images.unsplash.com` (`next.config.ts`).
-- `.agent/workflows/ui-ux-pro-max.md` and `.shared/ui-ux-pro-max/` are a design-guidance tool (`python3 .shared/ui-ux-pro-max/scripts/search.py ...`), not part of the app build.
+- TypeScript is installed twice, as Microsoft recommends until TypeScript 7.1 ships a compiler API: `typescript` is aliased to `@typescript/typescript6` (the 6.0 API, needed by typescript-eslint and used by `next build`'s type check), and `@typescript/native` is TypeScript 7, which provides the `tsc` binary. Drop the alias once typescript-eslint supports TypeScript 7.
 
 ## Known gaps
 
 - `app/privacy`, `app/terms` and `app/sitemap` call `useTranslations("Privacy" | "Terms" | "Sitemap")`, but those namespaces do not exist in the message files yet. They also render their own `Navigation`/`Footer` on top of the ones the root layout already renders.
-- `package-lock.json` is missing `@swc/helpers@0.5.23`, so `npm ci` fails until the lockfile is regenerated with `npm install`.
