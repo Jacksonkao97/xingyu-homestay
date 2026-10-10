@@ -73,5 +73,5 @@ User actions (theme toggle, language switch, contact and map clicks, gallery ope
 
 - Prettier with the Tailwind plugin is the formatter; keep class order as the plugin sorts it.
 - Commits use Conventional Commit style prefixes (`feat:`, etc.). Work happens on `dev` and is merged to `main` through pull requests.
-- Images live in `public/images/` (gallery photos in `public/images/gallery/`, currently placeholders to be replaced with real photos of the house); remote images are only allowed from `images.unsplash.com` (`next.config.ts`).
+- Images live in `public/images/` (gallery photos of the house in `public/images/gallery/`, taken from its Google Maps listing); remote images are only allowed from `images.unsplash.com` (`next.config.ts`).
 - TypeScript is installed twice, as Microsoft recommends until TypeScript 7.1 ships a compiler API: `typescript` is aliased to `@typescript/typescript6` (the 6.0 API, needed by typescript-eslint and used by `next build`'s type check), and `@typescript/native` is TypeScript 7, which provides the `tsc` binary. Drop the alias once typescript-eslint supports TypeScript 7.

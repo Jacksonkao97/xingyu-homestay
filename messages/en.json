@@ -31,12 +31,12 @@
     "next": "Next photo",
     "counter": "{current} of {total}",
     "items": [
-      { "title": "Master Bedroom", "image": "/images/gallery/bedroom.jpg" },
-      { "title": "Living Area", "image": "/images/gallery/living.jpg" },
-      { "title": "Modern Bath", "image": "/images/gallery/bath.jpg" },
+      { "title": "Mountain View", "image": "/images/gallery/view.jpg" },
+      { "title": "Twin Bedroom", "image": "/images/gallery/bedroom.jpg" },
+      { "title": "Second Bedroom", "image": "/images/gallery/bedroom-2.jpg" },
+      { "title": "Living & Dining", "image": "/images/gallery/living.jpg" },
       { "title": "Kitchen", "image": "/images/gallery/kitchen.jpg" },
-      { "title": "Dining Area", "image": "/images/gallery/dining.jpg" },
-      { "title": "Balcony View", "image": "/images/gallery/balcony.jpg" }
+      { "title": "Bathroom", "image": "/images/gallery/bath.jpg" }
     ]
   },
   "PricingSection": {
