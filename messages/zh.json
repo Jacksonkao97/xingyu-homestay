@@ -1,60 +1,151 @@
 {
+  "Metadata": {
+    "title": "星语小屋 Star-Whisper Cottage | 沙巴昆达山整栋民宿",
+    "description": "在沙巴昆达山拥有一整栋属于自己的小屋：清凉的高原空气、雾林景色，远眺京那巴鲁山。"
+  },
   "Navigation": {
     "siteName": "星语小屋",
     "home": "首页",
-    "gallery": "画廊",
+    "gallery": "相册",
     "pricing": "价格",
-    "contact": "联系我们"
+    "contact": "联系我们",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "toDark": "切换到深色主题",
+    "toLight": "切换到浅色主题",
+    "language": "语言"
   },
   "Hero": {
-    "title": "体验前所未有的舒适感",
-    "subtitle": "在自然的怀抱中体验奢华生活。您完美的度假胜地等待着您的光临。",
-    "cta": "预订您的住宿"
+    "location": "沙巴昆达山",
+    "title": "在神山脚下，拥有一整栋自己的小屋",
+    "subtitle": "清凉的高原早晨、薄雾森林与满天星空，距昆达山镇仅几分钟车程。",
+    "cta": "WhatsApp 联系我们",
+    "secondaryCta": "看看小屋"
   },
   "Gallery": {
     "title": "内部一瞥",
-    "subtitle": "探索我们小屋的美丽内饰和舒适氛围。",
+    "subtitle": "看看小屋的室内空间与温馨角落。",
+    "open": "放大查看{title}",
+    "close": "关闭",
+    "previous": "上一张",
+    "next": "下一张",
+    "counter": "第 {current} 张，共 {total} 张",
     "items": [
-      { "id": 1, "title": "主卧室", "image": "/images/hero-room.jpg" },
-      { "id": 2, "title": "生活区", "image": "/images/hero-room.jpg" },
-      { "id": 3, "title": "现代浴室", "image": "/images/hero-room.jpg" },
-      { "id": 4, "title": "厨房", "image": "/images/hero-room.jpg" },
-      { "id": 5, "title": "用餐区", "image": "/images/hero-room.jpg" },
-      { "id": 6, "title": "阳台景观", "image": "/images/hero-room.jpg" }
+      { "title": "窗外山景", "image": "/images/gallery/view.jpg" },
+      { "title": "双床房", "image": "/images/gallery/bedroom.jpg" },
+      { "title": "第二卧室", "image": "/images/gallery/bedroom-2.jpg" },
+      { "title": "客厅与餐厅", "image": "/images/gallery/living.jpg" },
+      { "title": "厨房", "image": "/images/gallery/kitchen.jpg" },
+      { "title": "浴室", "image": "/images/gallery/bath.jpg" }
     ]
   },
   "PricingSection": {
     "title": "设施与价格",
-    "subtitle": "享受一系列为您舒适而设计的现代设施。",
+    "subtitle": "整栋小屋由您独享，住得舒适所需的一切都已备好。",
     "perNight": "每晚",
-    "bookNow": "立即预订",
-    "standardRate": "标准价格",
-    "disclaimer": "价格可能会在节假日和特别活动期间有所变动",
+    "bookNow": "咨询入住日期",
+    "standardRate": "整栋标准价格",
+    "disclaimer": "节假日及特别活动期间价格可能有所变动。",
     "amenities": [
-      "高速 Wi-Fi",
-      "完整厨房",
-      "私人停车位",
-      "自然空调",
-      "薄雾森林景观",
-      "烧烤设施"
+      { "icon": "wifi", "label": "高速 Wi-Fi" },
+      { "icon": "kitchen", "label": "完整厨房" },
+      { "icon": "parking", "label": "私人停车位" },
+      { "icon": "air", "label": "高原天然凉爽空气" },
+      { "icon": "forest", "label": "薄雾森林景观" },
+      { "icon": "bbq", "label": "烧烤设施" }
     ]
   },
   "Contact": {
     "ready": "准备好放松了吗？",
     "getInTouch": "联系我们",
-    "subtitle": "对您的住宿有疑问吗？我们在这里帮助您规划完美的度假。",
+    "subtitle": "对您的住宿有疑问吗？我们很乐意帮您规划完美的假期。",
     "whatsapp": "WhatsApp",
-    "email": "电子邮件"
+    "whatsappMessage": "您好！我想咨询入住星语小屋的事宜。",
+    "email": "电子邮件",
+    "address": "Jalan Kundasang Kauluan, 89308 Ranau, Sabah",
+    "openMap": "在 Google 地图中打开",
+    "mapTitle": "星语小屋在昆达山的位置地图"
   },
   "Footer": {
     "name": "星语小屋",
+    "tagline": "沙巴昆达山的整栋民宿。",
     "privacy": "隐私政策",
     "terms": "服务条款",
     "sitemap": "网站地图",
     "rights": "版权所有。"
   },
-  "brand": {
-    "name": "星语小屋",
-    "logo": "星语小屋"
+  "Privacy": {
+    "title": "隐私政策",
+    "updated": "最后更新：2026 年 10 月",
+    "intro": "本政策说明星语小屋在您浏览本网站或联系我们时会收集哪些信息，以及我们如何使用这些信息。",
+    "sections": [
+      {
+        "heading": "您提供给我们的信息",
+        "body": "当您通过 WhatsApp 或电子邮件联系我们时，我们会收到您选择提供的信息，例如姓名、电话号码、电子邮箱、入住日期和入住人数。",
+        "items": []
+      },
+      {
+        "heading": "我们如何使用这些信息",
+        "body": "我们只会为安排您的住宿而使用这些信息：",
+        "items": [
+          "回答您的问题并确认预订",
+          "发送入住须知和路线指引",
+          "保存马来西亚法律要求的记录",
+          "改进网站和我们的服务"
+        ]
+      },
+      {
+        "heading": "Cookie 与网站分析",
+        "body": "本网站会在您的浏览器中保存您选择的语言和主题，以便下次访问时沿用。我们可能使用 Google Analytics 了解访客如何使用网站，它只收集匿名的使用数据，不会识别您的个人身份。",
+        "items": []
+      },
+      {
+        "heading": "信息共享与您的权利",
+        "body": "我们绝不出售您的信息。您可随时通过 WhatsApp 或电子邮件联系我们，查询我们保存的关于您的信息，或要求更正、删除。",
+        "items": []
+      }
+    ]
+  },
+  "Terms": {
+    "title": "服务条款",
+    "updated": "最后更新：2026 年 10 月",
+    "intro": "以下条款适用于星语小屋的预订以及您对本网站的使用。",
+    "sections": [
+      {
+        "heading": "预订",
+        "body": "当我们通过 WhatsApp 或电子邮件与您确认入住日期，并收到所需的订金后，预订即告成立。本网站所列价格仅供参考，节假日及特别活动期间可能有所变动。",
+        "items": []
+      },
+      {
+        "heading": "入住期间",
+        "body": "为了让每位客人都住得愉快，请您：",
+        "items": [
+          "入住人数不超过预订时约定的人数",
+          "尊重邻居，夜间保持安静",
+          "室内禁止吸烟",
+          "退房时保持房屋整洁"
+        ]
+      },
+      {
+        "heading": "取消预订",
+        "body": "取消及退款条款将在预订时与您约定。如行程有变，请尽早与我们联系。",
+        "items": []
+      },
+      {
+        "heading": "责任",
+        "body": "客人须对入住期间造成的任何损坏以及个人物品负责。除法律另有规定外，我们不对任何损失或伤害承担责任。",
+        "items": []
+      }
+    ]
+  },
+  "Sitemap": {
+    "title": "网站地图",
+    "mainNav": "首页内容",
+    "legalInfo": "政策"
+  },
+  "NotFound": {
+    "title": "找不到这个页面",
+    "body": "链接可能已过期或输入有误。返回首页看看小屋吧。",
+    "home": "返回首页"
   }
 }

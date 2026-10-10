@@ -2,6 +2,7 @@
 
 import { sendGAEvent } from "@next/third-parties/google";
 import { Moon, Sun } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { useSyncExternalStore } from "react";
 
@@ -10,21 +11,8 @@ const getSnapshot = () => true;
 const getServerSnapshot = () => false;
 
 export default function ThemeSwitcher() {
-  const { theme, setTheme } = useTheme();
-
-  const handleToggle = () => {
-    if (theme === "xingyu") {
-      setTheme("xingyu-dark");
-    } else {
-      setTheme("xingyu");
-    }
-    sendGAEvent("event", "theme_toggle", {
-      transport_type: "theme",
-      event_category: "theme",
-      event_label: theme === "xingyu" ? "xingyu-dark" : "xingyu",
-    });
-  };
-
+  const t = useTranslations("Navigation");
+  const { resolvedTheme, setTheme } = useTheme();
   const isClient = useSyncExternalStore(
     subscribe,
     getSnapshot,
@@ -32,22 +20,27 @@ export default function ThemeSwitcher() {
   );
 
   if (!isClient) {
-    return (
-      <div className="btn btn-ghost btn-circle pointer-events-none opacity-0" />
-    ); // Placeholder to avoid layout shift
+    // Same size as the button, so nothing shifts once the theme is known.
+    return <div className="size-10" aria-hidden />;
   }
+
+  const isDark = resolvedTheme === "dark";
+  const next = isDark ? "light" : "dark";
 
   return (
     <button
-      onClick={handleToggle}
-      className="btn btn-ghost btn-circle"
-      aria-label="Toggle theme"
+      type="button"
+      onClick={() => {
+        setTheme(next);
+        sendGAEvent("event", "theme_toggle", {
+          event_category: "theme",
+          event_label: next,
+        });
+      }}
+      className="btn btn-ghost btn-circle size-10"
+      aria-label={isDark ? t("toLight") : t("toDark")}
     >
-      {theme === "xingyu" ? (
-        <Moon className="h-5 w-5" />
-      ) : (
-        <Sun className="h-5 w-5" />
-      )}
+      {isDark ? <Sun className="size-5" /> : <Moon className="size-5" />}
     </button>
   );
 }

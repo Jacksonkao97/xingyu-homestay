@@ -1,64 +1,151 @@
 {
+  "Metadata": {
+    "title": "星语小屋 Star-Whisper Cottage | Whole-house homestay in Kundasang, Sabah",
+    "description": "A whole house of your own in Kundasang, Sabah, with cool highland air, misty forest views and Mount Kinabalu on the horizon."
+  },
   "Navigation": {
     "siteName": "Star-Whisper Cottage",
     "home": "Home",
     "gallery": "Gallery",
     "pricing": "Pricing",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toDark": "Switch to dark theme",
+    "toLight": "Switch to light theme",
+    "language": "Language"
   },
   "Hero": {
-    "title": "Experience Comfort Like Never Before",
-    "subtitle": "Experience luxury living in the heart of nature. Your perfect getaway awaits.",
-    "cta": "Book Your Stay"
+    "location": "Kundasang, Sabah",
+    "title": "A whole house of your own under Mount Kinabalu",
+    "subtitle": "Cool highland mornings, misty forest views and starry nights, a short drive from Kundasang town.",
+    "cta": "Message us on WhatsApp",
+    "secondaryCta": "See the house"
   },
   "Gallery": {
     "title": "A Glimpse Inside",
-    "subtitle": "Explore the beautiful interiors and cozy ambiance of our cottage.",
+    "subtitle": "Explore the interiors and cozy corners of the cottage.",
+    "open": "View {title} larger",
+    "close": "Close",
+    "previous": "Previous photo",
+    "next": "Next photo",
+    "counter": "{current} of {total}",
     "items": [
-      {
-        "id": 1,
-        "title": "Master Bedroom",
-        "image": "/images/hero-room.jpg"
-      },
-      { "id": 2, "title": "Living Area", "image": "/images/hero-room.jpg" },
-      { "id": 3, "title": "Modern Bath", "image": "/images/hero-room.jpg" },
-      { "id": 4, "title": "Kitchen", "image": "/images/hero-room.jpg" },
-      { "id": 5, "title": "Dining Area", "image": "/images/hero-room.jpg" },
-      { "id": 6, "title": "Balcony View", "image": "/images/hero-room.jpg" }
+      { "title": "Mountain View", "image": "/images/gallery/view.jpg" },
+      { "title": "Twin Bedroom", "image": "/images/gallery/bedroom.jpg" },
+      { "title": "Second Bedroom", "image": "/images/gallery/bedroom-2.jpg" },
+      { "title": "Living & Dining", "image": "/images/gallery/living.jpg" },
+      { "title": "Kitchen", "image": "/images/gallery/kitchen.jpg" },
+      { "title": "Bathroom", "image": "/images/gallery/bath.jpg" }
     ]
   },
   "PricingSection": {
     "title": "Amenities & Pricing",
-    "subtitle": "Enjoy a range of modern amenities designed for your comfort.",
+    "subtitle": "The whole house is yours for the night, with everything you need for a slow, comfortable stay.",
     "perNight": "per night",
-    "bookNow": "Book Now",
-    "standardRate": "Standard Rate",
-    "disclaimer": "Prices may vary during holidays and special events",
+    "bookNow": "Ask about your dates",
+    "standardRate": "Standard rate for the whole house",
+    "disclaimer": "Prices may vary during holidays and special events.",
     "amenities": [
-      "High-speed Wi-Fi",
-      "Full Kitchen",
-      "Private Parking",
-      "Nature Air Conditioning",
-      "Misty Forest Views",
-      "BBQ Facilities"
+      { "icon": "wifi", "label": "High-speed Wi-Fi" },
+      { "icon": "kitchen", "label": "Full kitchen" },
+      { "icon": "parking", "label": "Private parking" },
+      { "icon": "air", "label": "Naturally cool mountain air" },
+      { "icon": "forest", "label": "Misty forest views" },
+      { "icon": "bbq", "label": "BBQ facilities" }
     ]
   },
   "Contact": {
     "ready": "Ready to Relax?",
-    "getInTouch": "Get in Touch",
+    "getInTouch": "Get in touch",
     "subtitle": "Have questions about your stay? We're here to help you plan your perfect getaway.",
     "whatsapp": "WhatsApp",
-    "email": "Email"
+    "whatsappMessage": "Hi! I'd like to ask about staying at Star-Whisper Cottage.",
+    "email": "Email",
+    "address": "Jalan Kundasang Kauluan, 89308 Ranau, Sabah",
+    "openMap": "Open in Google Maps",
+    "mapTitle": "Map showing Star-Whisper Cottage in Kundasang"
   },
   "Footer": {
     "name": "Star-Whisper Cottage",
+    "tagline": "A whole-house homestay in Kundasang, Sabah.",
     "privacy": "Privacy",
     "terms": "Terms",
     "sitemap": "Sitemap",
     "rights": "All rights reserved."
   },
-  "brand": {
-    "name": "Star-Whisper Cottage",
-    "logo": "Star-Whisper"
+  "Privacy": {
+    "title": "Privacy Policy",
+    "updated": "Last updated: October 2026",
+    "intro": "This policy explains what information Star-Whisper Cottage collects when you visit this website or contact us, and how we use it.",
+    "sections": [
+      {
+        "heading": "Information you share with us",
+        "body": "When you message us on WhatsApp or send us an email, we receive the details you choose to share, such as your name, phone number, email address, travel dates and number of guests.",
+        "items": []
+      },
+      {
+        "heading": "How we use it",
+        "body": "We use your information only to look after your stay:",
+        "items": [
+          "Answering your questions and confirming bookings",
+          "Sending check-in details and directions",
+          "Keeping records required by Malaysian law",
+          "Improving the website and our service"
+        ]
+      },
+      {
+        "heading": "Cookies and analytics",
+        "body": "This website stores your language and theme choice in your browser so it remembers them on your next visit. We may use Google Analytics to understand how visitors use the site. It collects anonymous usage data and does not identify you personally.",
+        "items": []
+      },
+      {
+        "heading": "Sharing and your rights",
+        "body": "We never sell your information. You can ask us at any time what we hold about you, or ask us to correct or delete it, by contacting us on WhatsApp or by email.",
+        "items": []
+      }
+    ]
+  },
+  "Terms": {
+    "title": "Terms of Service",
+    "updated": "Last updated: October 2026",
+    "intro": "These terms apply to bookings at Star-Whisper Cottage and to your use of this website.",
+    "sections": [
+      {
+        "heading": "Bookings",
+        "body": "A booking is confirmed once we have agreed your dates with you on WhatsApp or by email and received any deposit we asked for. Rates shown on this website are a guide and may change during holidays and special events.",
+        "items": []
+      },
+      {
+        "heading": "During your stay",
+        "body": "To keep the cottage pleasant for every guest, we ask that you:",
+        "items": [
+          "Keep to the number of guests agreed when booking",
+          "Respect our neighbours and keep noise down at night",
+          "Do not smoke indoors",
+          "Leave the house as tidy as you found it"
+        ]
+      },
+      {
+        "heading": "Cancellations",
+        "body": "Cancellation and refund terms are agreed with you when you book. Please contact us as early as possible if your plans change.",
+        "items": []
+      },
+      {
+        "heading": "Liability",
+        "body": "Guests are responsible for any damage caused during their stay and for their own belongings. We are not liable for loss or injury except where required by law.",
+        "items": []
+      }
+    ]
+  },
+  "Sitemap": {
+    "title": "Sitemap",
+    "mainNav": "On the home page",
+    "legalInfo": "Policies"
+  },
+  "NotFound": {
+    "title": "This page is not here",
+    "body": "The link may be old or mistyped. Head back to the home page to see the cottage.",
+    "home": "Go to the home page"
   }
 }
